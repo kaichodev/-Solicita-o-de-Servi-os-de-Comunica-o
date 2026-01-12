@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicitação de Serviços – SEMED</title>
+
+<style>
+* { box-sizing: border-box; margin:0; padding:0; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fa;
+  padding: 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 860px;
+  margin: auto;
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+h1,h2,h3 { color:#1e3a8a; }
+h2 { margin-bottom:20px; }
+h3 { margin:32px 0 16px; }
+
+label { font-weight:bold; margin:16px 0 6px; display:block; }
+
+input, textarea, select {
+  width:100%;
+  padding:10px 12px;
+  border:1px solid #d1d5db;
+  border-radius:6px;
+  font-size:16px;
+}
+
+textarea { min-height:90px; }
+
+.alert {
+  background:#fefce8;
+  border-left:5px solid #facc15;
+  padding:14px;
+  border-radius:6px;
+  margin-bottom:24px;
+}
+
+/* ===== CAIXAS DE SERVIÇO ===== */
+.service-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap:16px;
+  margin-bottom:32px;
+}
+
+.service-box {
+  border:2px solid #e5e7eb;
+  padding:18px;
+  border-radius:10px;
+  background:#f9fafb;
+  cursor:pointer;
+  text-align:center;
+  font-weight:bold;
+  transition:all .25s;
+}
+
+.service-box:hover {
+  background:#eef2ff;
+  transform: translateY(-3px);
+}
+
+.service-box.active {
+  border-color:#1e3a8a;
+  background:#e0e7ff;
+}
+
+/* ===== SEÇÕES ===== */
+.art-section {
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  margin-bottom:18px;
+  overflow:hidden;
+  background:#f9fafb;
+}
+
+.art-header {
+  padding:14px 18px;
+  background:#eff6ff;
+  font-weight:bold;
+}
+
+.art-content {
+  max-height:0;
+  overflow:hidden;
+  padding:0 18px;
+  transition:all .35s ease;
+}
+
+.art-content.open {
+  max-height:2000px;
+  padding:18px;
+}
+
+button {
+  background:#1e3a8a;
+  color:#fff;
+  border:none;
+  padding:14px 32px;
+  font-size:1.1em;
+  border-radius:6px;
+  cursor:pointer;
+  margin-top:24px;
+}
+
+button:hover { background:#172554; }
+
+footer {
+  margin-top:40px;
+  text-align:center;
+  color:#666;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h1>Secretaria Municipal de Educação</h1>
+  <h2>Solicitação de Serviços de Comunicação e Artes</h2>
+
+  <div class="alert">
+    ⚠️ Os pedidos devem ser realizados com <strong>mínimo de 3 dias úteis de antecedência</strong>.
+  </div>
+
+  <form>
+
+    <h3>Dados do Solicitante</h3>
+    <label>Nome *</label>
+    <input type="text" required>
+
+    <label>Setor / Departamento</label>
+    <input type="text">
+
+    <label>Telefone / WhatsApp</label>
+    <input type="text">
+
+    <h3>Selecione o serviço desejado</h3>
+
+    <div class="service-grid">
+      <div class="service-box" data-target="camisa">🟦 Arte para Camisa</div>
+      <div class="service-box" data-target="card">🟨 Card Redes Sociais</div>
+      <div class="service-box" data-target="banner">🟥 Banner</div>
+      <div class="service-box" data-target="video">🎥 Vídeo</div>
+      <div class="service-box" data-target="evento">🟩 Arte para Evento</div>
+    </div>
+
+    <!-- ===== SEÇÕES ===== -->
+
+    <div class="art-section" id="camisa">
+      <div class="art-header">Arte para Camisa</div>
+      <div class="art-content">
+        <label>Tipo de camisa</label>
+        <select>
+          <option>Institucional</option>
+          <option>Evento</option>
+          <option>Escolar</option>
+        </select>
+        <label>Frase/dizeres</label>
+        <input type="text">
+        <label>Cor</label>
+        <input type="text">
+        <label>Referência</label>
+        <input type="file">
+      </div>
+    </div>
+
+    <div class="art-section" id="card">
+      <div class="art-header">Card para Redes Sociais</div>
+      <div class="art-content">
+        <label>Título</label>
+        <input type="text">
+        <label>Texto</label>
+        <textarea></textarea>
+        <label>Cores</label>
+        <input type="text">
+      </div>
+    </div>
+
+    <div class="art-section" id="banner">
+      <div class="art-header">Banner</div>
+      <div class="art-content">
+        <label>Tamanho</label>
+        <input type="text">
+        <label>Texto</label>
+        <textarea></textarea>
+      </div>
+    </div>
+
+    <div class="art-section" id="video">
+      <div class="art-header">Vídeo</div>
+      <div class="art-content">
+        <label>Roteiro / Objetivo</label>
+        <textarea></textarea>
+        <label>Duração</label>
+        <input type="text">
+      </div>
+    </div>
+
+    <div class="art-section" id="evento">
+      <div class="art-header">Arte para Evento</div>
+      <div class="art-content">
+        <label>Nome do evento</label>
+        <input type="text">
+        <label>Tema</label>
+        <input type="text">
+        <label>Descrição</label>
+        <textarea></textarea>
+      </div>
+    </div>
+
+    <h3>Prazo</h3>
+    <label>Data desejada *</label>
+    <input type="date" required>
+
+    <button type="submit">Enviar Solicitação</button>
+  </form>
+
+  <footer>Sistema interno • SEMED</footer>
+</div>
+
+<script>
+  const boxes = document.querySelectorAll('.service-box');
+  const sections = document.querySelectorAll('.art-content');
+
+  boxes.forEach(box => {
+    box.addEventListener('click', () => {
+      const target = box.dataset.target;
+
+      boxes.forEach(b => b.classList.remove('active'));
+      sections.forEach(s => s.classList.remove('open'));
+
+      box.classList.add('active');
+      document.querySelector(`#${target} .art-content`).classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>

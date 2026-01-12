@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel de Pedidos – Comunicação SEMED</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#eef1f5; margin:0; padding:20px; }
+    h1 { color:#1f3c88; }
+    .container { max-width:1200px; margin:auto; }
+    .top-bar { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
+    .filters select, .filters input { padding:6px; margin-right:8px; }
+    table { width:100%; border-collapse:collapse; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    th, td { padding:10px; border-bottom:1px solid #ddd; text-align:left; }
+    th { background:#1f3c88; color:#fff; }
+    tr:hover { background:#f5f7fa; }
+    .status { padding:4px 8px; border-radius:4px; font-size:12px; color:#fff; }
+    .recebido { background:#6c757d; }
+    .producao { background:#ffc107; color:#000; }
+    .concluido { background:#28a745; }
+    .atrasado { background:#dc3545; }
+    .actions button { padding:4px 8px; margin-right:4px; border:none; border-radius:4px; cursor:pointer; }
+    .btn-view { background:#17a2b8; color:#fff; }
+    .btn-edit { background:#007bff; color:#fff; }
+    .btn-done { background:#28a745; color:#fff; }
+    footer { margin-top:20px; font-size:12px; text-align:center; color:#666; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <h1>Painel Interno – Comunicação SEMED</h1>
+      <div class="filters">
+        <select>
+          <option>Filtrar por tipo</option>
+          <option>Camisa</option>
+          <option>Card</option>
+          <option>Banner</option>
+          <option>Evento</option>
+          <option>Vídeo</option>
+        </select>
+        <select>
+          <option>Status</option>
+          <option>Recebido</option>
+          <option>Em produção</option>
+          <option>Concluído</option>
+          <option>Atrasado</option>
+        </select>
+        <input type="date" />
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Solicitante</th>
+          <th>Setor</th>
+          <th>Tipo de Arte</th>
+          <th>Data Pedido</th>
+          <th>Prazo</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>Maria Silva</td>
+          <td>Ensino Básico</td>
+          <td>Card Digital</td>
+          <td>10/01/2026</td>
+          <td>13/01/2026</td>
+          <td><span class="status recebido">Recebido</span></td>
+          <td class="actions">
+            <button class="btn-view">Ver</button>
+            <button class="btn-edit">Editar</button>
+            <button class="btn-done">Concluir</button>
+          </td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>João Pereira</td>
+          <td>Logística</td>
+          <td>Banner</td>
+          <td>09/01/2026</td>
+          <td>11/01/2026</td>
+          <td><span class="status producao">Em produção</span></td>
+          <td class="actions">
+            <button class="btn-view">Ver</button>
+            <button class="btn-edit">Editar</button>
+            <button class="btn-done">Concluir</button>
+          </td>
+        </tr>
+        <tr>
+          <td>003</td>
+          <td>Ana Costa</td>
+          <td>Coordenação</td>
+          <td>Camisa</td>
+          <td>05/01/2026</td>
+          <td>07/01/2026</td>
+          <td><span class="status atrasado">Atrasado</span></td>
+          <td class="actions">
+            <button class="btn-view">Ver</button>
+            <button class="btn-edit">Editar</button>
+            <button class="btn-done">Concluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer>
+      Sistema interno de organização de demandas • SEMED
+    </footer>
+  </div>
+</body>
+</html>
